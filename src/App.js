@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import MessageList from './components/MessageList';
 
+import StyledInputField from "./components/styled/StyledInputField"
+import StyledButton from "./components/styled/StyledButton"
+
 import settings from './settings';
 
 import './App.css';
@@ -71,8 +74,8 @@ function App() {
         <MessageList allMessages={allMessages} />
       </div>
       <div className="container">
-        <input type="text" id="name" name="name" placeholder=" Message" value={messageToSend} onChange={handleTypeMessage}></input>
-        <button onClick={handleSendMessage}>Send</button>
+        <StyledInputField type="text" id="name" name="name" placeholder=" Message" value={messageToSend} onChange={handleTypeMessage}></StyledInputField>
+        <StyledButton onClick={handleSendMessage}>Send</StyledButton>
       </div>
     </div>
   );
