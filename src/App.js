@@ -70,13 +70,15 @@ function App() {
       <div className="container">
         <h1 className="chat-title">Chat Interface</h1>
       </div>
-      <div className="message-container">
-        <MessageList allMessages={allMessages} />
-      </div>
-      <div className="container">
-        <StyledInputField type="text" id="name" name="name" placeholder=" Message" value={messageToSend} onChange={handleTypeMessage}></StyledInputField>
-        <StyledButton onClick={handleSendMessage}>Send</StyledButton>
-      </div>
+      {!errorMessage ? <div>
+        <div className="message-container">
+          <MessageList allMessages={allMessages} />
+        </div>
+        <div className="container">
+          <StyledInputField type="text" id="name" data-cy={`input`} name="name" placeholder=" Message" value={messageToSend} onChange={handleTypeMessage}></StyledInputField>
+          <StyledButton onClick={handleSendMessage} data-cy={`send-btn`}>Send</StyledButton>
+        </div>
+      </div> : <p>Error: {errorMessage}</p>}
     </div>
   );
 }
